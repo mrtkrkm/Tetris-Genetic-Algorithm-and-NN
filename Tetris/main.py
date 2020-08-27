@@ -1,110 +1,98 @@
+import Tetris.Utils as utils
 import pygame
-import random
-from Tetris.BasicShapes import Shapes as bs
-from Tetris.Pieces import Pieces
+import Tetris.Constants as constants
 
-pygame.font.init()
-
-S_WIDTH=800
-S_HEIGHT=600
-play_width=300
-play_height=600
-block_size=30
-
-top_left_x = (S_WIDTH - play_width) // 2
-top_left_y = S_HEIGHT - play_height
-
-shapes=[bs.S, bs.Z, bs.O, bs.I, bs.J, bs.L, bs.T]
-colors=[(255,0,0),(0,255,0),(0,0,255),(128,128,128),(255,255,255),(128,0,128),(0,128,128)]
-
-def show_grid(loc):
-    grid=[[(0,0,0) for _ in range(10) ]for _ in range(20)]
-
-    for i in range(len(grid)):
-        for j in range(len(grid[0])):
-            if (i,j) in loc:
-                color=loc[(i,j)]
-                grid[i][j]=color
-    
-    return grid
-            
-def create_shape():
-    shape=random.choice(shapes)
-    basis_shape=Pieces(5,0,shape,colors[shapes.index[shape]])
-
-    return basic_shape
-
-def clear_rows(filled_pos, grid):
-    '''
-    After getting point remove the bottom
-
-    Inputs:
-    filled_pos= All position of shapes
-    '''
-    
-    y_ps=-1
-    inc=0
-    back_color=(0,0,0)
-    for i in range(grid):
-        if back_color not in grid[i]:
-            y_ps=i
-            inc +=1
-
-    if inc>0:
-        
-
-
-
-
-def put_shapes(surface,grid, shape):
-    position=get_position(shape)
-
-    for i in range(grid):
-        for j in range(grid[0]):
-            pygame.draw.rect(surface, grid[i][j],(top_left_x+j*block_size, top_left_y+i*block_size, block_size, block_size),0)
-    
-
-
-
-def check_borders():
-    pass
-
-def get_position(shape):
-    pos=[]
-
-    shape=shape[shape.rotation]
-
-    for i,row in enumerate(len(shape)):
-        row=list(row)
-        for j,column in enumerate(len(row)):
-            if column=='0':
-                pos.append((i,j))
-    
-    return pos
-
-
-def game_functions():
-    pass
-
-
-def run_game(window):
+def game_functions(surface):
     run=True
+    loc = {}
+    first_shape = utils.create_shape()
+    second_shape=utils.create_shape()
+    surface.fill((0,0,0))
+    rotation=0
+    grid=utils.show_grid(loc)
+    onThe_Ground=False
+    time=0
+    clock=pygame.time.Clock()
+    score=0
+    #draw_grid(surface)
     while run:
-        window.fill((254,255,255))
+        #starting_window(surface, 'inside game')
+        grid=utils.show_grid(loc)
+        utils.show_score(surface, score)
+        time +=clock.get_rawtime()
+        clock.tick()
+        #show_shape(surface,first_shape,grid)
+        utils.show_lines(grid, surface)
+        utils.show_next_shape(surface,second_shape)
 
+        if time/1000>0.3:
+            time=0
+            first_shape.y += 1
+            if not utils.check_borders(grid, first_shape):
+                first_shape.y -= 1
+                onThe_Ground = True
         for event in pygame.event.get():
             if event.type==pygame.QUIT:
                 run=False
             if event.type==pygame.KEYDOWN:
-                grid=show_grid()
-                shape=create_shape()
-                put_shapes(window, grid, shape)
-                #game_functions()
-    
+
+                if event.key==pygame.K_DOWN:
+                    first_shape.y +=1
+                    if not utils.check_borders(grid, first_shape):
+                        first_shape.y -=1
+                        onThe_Ground=True
+                if event.key==pygame.K_RIGHT:
+                    first_shape.x+=1
+                    if not utils.check_borders(grid, first_shape):
+                        first_shape.x -=1
+                if event.key==pygame.K_LEFT:
+                    first_shape.x -=1
+                    if not utils.check_borders(grid, first_shape):
+                        first_shape.x +=1
+                if event.key==pygame.K_UP:
+                    rotation +=1
+                    if rotation>len(first_shape.shape)-1:
+                        rotation =0
+                    first_shape.rotation=rotation
+
+
+        position=utils.get_position(first_shape)
+
+        for pos in position:
+            (x,y)=pos
+            grid[y][x]=first_shape.color
+
+        utils.put_shapes(surface,grid,first_shape)
+
+        if onThe_Ground:
+            for pos in position:
+                loc_p=(pos[0], pos[1])
+                loc[loc_p]=first_shape.color
+
+            first_shape=second_shape
+            second_shape=utils.create_shape()
+            onThe_Ground=False
+            score +=utils.clear_rows(grid, loc)*10
+
     pygame.display.quit()
 
 
-def main_func():
-    window=pygame.display.set_mode((S_WIDTH, S_HEIGHT))
-    run_game(window)
+def run_game(window):
+    run=True
 
+    while run:
+        window.fill((0,0,0))
+        utils.starting_window(window,'please press a button')
+        for event in pygame.event.get():
+            if event.type==pygame.QUIT:
+                run=False
+            if event.type==pygame.KEYDOWN:
+                game_functions(window)
+        pygame.display.update()
+    pygame.display.quit()
+
+def main_func():
+    pygame.font.init()
+
+    window=pygame.display.set_mode((constants.S_WIDTH, constants.S_HEIGHT))
+    run_game(window)
