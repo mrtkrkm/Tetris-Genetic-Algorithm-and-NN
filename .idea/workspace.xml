@@ -2,13 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ae1db6a8-e3cf-419d-bac4-e1f1bf5c75b6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Tetris/Constants.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tetris/Utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Tetris Genetic Algorithm and NN.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Tetris Genetic Algorithm and NN.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GA/CrossoverTypes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GA/Steps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/NN/FeedForward.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Tetris/AI_tetris.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tetris/Pieces.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tetris/Pieces.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tetris/Utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tetris/Utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tetris/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tetris/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +34,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Training-Snake-Game-With-Genetic-Algorithm-master" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager">
@@ -94,45 +95,69 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="176" width="1092" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1598535717783" />
-    <state x="739" y="275" key="FileChooserDialogImpl" timestamp="1598535861658">
+    <state width="622" height="466" key="DebuggerActiveHint" timestamp="1598641307774">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="739" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1598535861658" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1598567437420">
+    <state width="622" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1598641307774" />
+    <state x="739" y="275" key="FileChooserDialogImpl" timestamp="1598628358649">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598567437420" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1598567437420">
+    <state x="739" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1598628358649" />
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1598642134057">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598567437420" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1598567437420">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598642134057" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1598642134057">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598567437420" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1598567437420">
+    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598642134057" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1598642134057">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598567437420" />
-    <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1598567332511">
+    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598642134057" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1598642134057">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598567332511" />
-    <state width="1899" height="348" key="GridCell.Tab.1.center" timestamp="1598567332511">
+    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598642134057" />
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1598642032778">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598567332511" />
-    <state width="1899" height="348" key="GridCell.Tab.1.left" timestamp="1598567332511">
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598642032778" />
+    <state width="1899" height="348" key="GridCell.Tab.1.center" timestamp="1598642032778">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598567332511" />
-    <state width="1899" height="348" key="GridCell.Tab.1.right" timestamp="1598567332511">
+    <state width="1899" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598642032778" />
+    <state width="1899" height="348" key="GridCell.Tab.1.left" timestamp="1598642032777">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598567332511" />
+    <state width="1899" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598642032777" />
+    <state width="1899" height="348" key="GridCell.Tab.1.right" timestamp="1598642032778">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598642032778" />
     <state x="461" y="163" key="SettingsEditor" timestamp="1598535865658">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="163" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1598535865658" />
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1598620747343">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1598620747343" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Tetris/AI_tetris.py</url>
+          <line>164</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Tetris/AI_tetris.py</url>
+          <line>189</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

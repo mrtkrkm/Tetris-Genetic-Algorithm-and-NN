@@ -73,7 +73,8 @@ def game_functions(surface):
             second_shape=utils.create_shape()
             onThe_Ground=False
             score +=utils.clear_rows(grid, loc)*10
-
+        if utils.check_end(loc):
+            run=False
     pygame.display.quit()
 
 

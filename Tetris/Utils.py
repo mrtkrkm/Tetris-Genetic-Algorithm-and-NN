@@ -220,4 +220,12 @@ def get_position(shape):
             if column == '0':
                 pos.append((shape.x + j, shape.y + i))
 
+
     return pos
+
+def check_end(loc):
+    for pos in loc:
+        x,y=pos
+        if y<1:
+            return True
+    return False
