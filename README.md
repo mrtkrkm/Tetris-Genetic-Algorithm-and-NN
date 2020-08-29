@@ -1,7 +1,8 @@
 This is a Tetris AI Implemantation by using Genetic Algorithm and Neural Network.
 
 For genetic algorithm the following methods selected
-`Selection`
+
+ `Selection`
 1. Best `number_of_parents` selected based on their fitness result
 2. Best `number_of_parents` chromosomes selected for next generation. AKA `elitist selection`
 3. In order to chose 2 parents `Roulette Wheel Selection` used on Best chromosomes
