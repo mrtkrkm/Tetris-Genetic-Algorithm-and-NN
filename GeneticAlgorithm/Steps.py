@@ -70,7 +70,7 @@ class GeneticAlgorithm(object):
         random_number=np.random.rand(1)
         if random_number<limit:
             rand_gen_val = np.random.choice(np.arange(-1, 1, step=0.001), size=(1), replace=False)[0]
-            for i in range(gen_number):
+            for i in range(rand_gen_val):
                 chromosome[starting_point+i]=chromosome[starting_point+i]+rand_gen_val
 
         return chromosome

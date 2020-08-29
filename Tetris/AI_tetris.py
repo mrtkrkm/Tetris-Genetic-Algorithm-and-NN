@@ -59,6 +59,12 @@ def starting_values():
 
     return grid, shape
 
+def adj_x(shapes, rotation):
+    shapes.rotation=rotation
+    shape_pos = utils.get_position(shapes)
+    s_m_width = sorted(shape_pos, key=lambda x: x[0], reverse=True)
+    m_width = s_m_width[0][0]
+    return  m_width
 
 def ai_playing(number_game, movenumber, weights, nn):
     score=0
@@ -73,9 +79,12 @@ def ai_playing(number_game, movenumber, weights, nn):
             rotation=np.argmax(rotate)
             x=np.argmax(x)
 
-            if x + shape_maxX >= 10:
-                score -= 20
-                x=2
+            # if x + shape_maxX >= 10:
+            #     print('fuck')
+            #     score -= 20
+            #     x=x-shape_maxX
+            max_s=(adj_x(shape, rotation%(len(shape.shape)))+x)%10
+            x=max_s
             t_score,grid,shape, end=ai_tetris(rotation,x,shape, max_y, shape_maxX, shape_maxY,j)
             score +=t_score
             if end==False:

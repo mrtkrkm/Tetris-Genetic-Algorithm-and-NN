@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ae1db6a8-e3cf-419d-bac4-e1f1bf5c75b6" name="Default Changelist" comment="" />
+    <list default="true" id="ae1db6a8-e3cf-419d-bac4-e1f1bf5c75b6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GeneticAlgorithm/Steps.py" beforeDir="false" afterPath="$PROJECT_DIR$/GeneticAlgorithm/Steps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NeuralNetwork/FeedForward.py" beforeDir="false" afterPath="$PROJECT_DIR$/NeuralNetwork/FeedForward.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tetris/AI_tetris.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tetris/AI_tetris.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,38 +100,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="739" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1598628358649" />
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1598668079645">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom" timestamp="1598670758533">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598668079645" />
-    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1598668079645">
+    <state width="1899" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598670758533" />
+    <state width="1899" height="282" key="GridCell.Tab.0.center" timestamp="1598670758533">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598668079645" />
-    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1598668079645">
+    <state width="1899" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598670758533" />
+    <state width="1899" height="282" key="GridCell.Tab.0.left" timestamp="1598670758533">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598668079645" />
-    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1598668079645">
+    <state width="1899" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598670758533" />
+    <state width="1899" height="282" key="GridCell.Tab.0.right" timestamp="1598670758533">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598668079645" />
-    <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1598661420452">
+    <state width="1899" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598670758533" />
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1598670151928">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598661420452" />
-    <state width="1899" height="348" key="GridCell.Tab.1.center" timestamp="1598661420451">
+    <state width="1899" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1598670151928" />
+    <state width="1899" height="348" key="GridCell.Tab.1.center" timestamp="1598670151928">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598661420451" />
-    <state width="1899" height="348" key="GridCell.Tab.1.left" timestamp="1598661420451">
+    <state width="1899" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1598670151928" />
+    <state width="1899" height="348" key="GridCell.Tab.1.left" timestamp="1598670151928">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598661420451" />
-    <state width="1899" height="348" key="GridCell.Tab.1.right" timestamp="1598661420452">
+    <state width="1899" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1598670151928" />
+    <state width="1899" height="348" key="GridCell.Tab.1.right" timestamp="1598670151928">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598661420452" />
+    <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1598670151928" />
     <state x="461" y="163" key="SettingsEditor" timestamp="1598535865658">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -140,8 +146,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/Tetris/AI_tetris.py</url>
-          <line>155</line>
-          <option name="timeStamp" value="13" />
+          <line>82</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
