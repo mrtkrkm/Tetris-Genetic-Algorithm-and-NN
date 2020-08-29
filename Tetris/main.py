@@ -31,6 +31,7 @@ def game_functions(surface):
             if not utils.check_borders(grid, first_shape):
                 first_shape.y -= 1
                 onThe_Ground = True
+
         for event in pygame.event.get():
             if event.type==pygame.QUIT:
                 run=False
@@ -60,7 +61,8 @@ def game_functions(surface):
 
         for pos in position:
             (x,y)=pos
-            grid[y][x]=first_shape.color
+            if y > -1:
+                grid[y][x]=first_shape.color
 
         utils.put_shapes(surface,grid,first_shape)
 

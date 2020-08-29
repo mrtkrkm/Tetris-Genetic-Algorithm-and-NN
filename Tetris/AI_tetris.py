@@ -7,7 +7,7 @@ from Tetris.Pieces import Pieces
 from Tetris.BasicShapes import Shapes
 import numpy as np
 
-
+loc={}
 
 def calculate_inputs(grid,shape):
     max_x=0
@@ -54,7 +54,6 @@ def calculate_inputs(grid,shape):
 
 def starting_values():
     shape=utils.create_shape()
-    global loc
     loc={}
     grid=utils.show_grid(loc)
 
@@ -65,6 +64,8 @@ def ai_playing(number_game, movenumber, weights, nn):
     score=0
     for i in range(number_game):
         grid, shape=starting_values()
+        global loc
+        loc={}
         for j in range(movenumber):
             max_x, max_y, shape_maxX, shape_maxY = calculate_inputs(grid, shape)
             input=np.array([max_x, max_y, shape_maxX, shape_maxY]).reshape(-1, 4)
@@ -72,103 +73,30 @@ def ai_playing(number_game, movenumber, weights, nn):
             rotation=np.argmax(rotate)
             x=np.argmax(x)
 
-            if x + max_x > 10:
-                score += 20
+            if x + shape_maxX >= 10:
+                score -= 20
                 x=2
-            t_score,grid,shape, end=ai_tetris(rotation,x,shape, max_y, shape_maxX, shape_maxY)
+            t_score,grid,shape, end=ai_tetris(rotation,x,shape, max_y, shape_maxX, shape_maxY,j)
             score +=t_score
-            if end:
+            if end==False:
                 break
-
-
-
-
     return score
 
 
 
-def ai_play(surface, popsize, movenumber,weights):
-    run=True
-    loc = {}
-    first_shape = utils.create_shape()
-    second_shape=utils.create_shape()
-    surface.fill((0,0,0))
-    rotation=0
-    grid=utils.show_grid(loc)
-    onThe_Ground=False
-    time=0
-    clock=pygame.time.Clock()
-    score=0
+def check_ground(shape):
+    shape_pos = utils.get_position(shape)
+    height_sorted = sorted(shape_pos, key=lambda x: x[1], reverse=True)
+    max_height=height_sorted[0][1]
+    return 20-max_height
 
 
-
-    while run:
-
-        grid=utils.show_grid(loc)
-        utils.show_score(surface, score)
-        time +=clock.get_rawtime()
-        clock.tick()
-        #show_shape(surface,first_shape,grid)
-        utils.show_lines(grid, surface)
-        utils.show_next_shape(surface,second_shape)
-        if time/1000>0.3:
-            time=0
-            first_shape.y += 1
-            if not utils.check_borders(grid, first_shape):
-                first_shape.y -= 1
-                onThe_Ground = True
-
-        #max_x, max_y, shape_maxX, shape_maxY=calculate_inputs(surface, grid, first_shape)
-        #rotate, x=ff.forward(weights,np.array([max_x, max_y,shape_maxX,shape_maxY]).reshape(-1,7))
-
-
-        for event in pygame.event.get():
-            if event.type==pygame.QUIT:
-                run=False
-            if event.type==pygame.KEYDOWN:
-                if event.key==pygame.K_DOWN:
-                    first_shape.y +=1
-                    if not utils.check_borders(grid, first_shape):
-                        first_shape.y -=1
-                        onThe_Ground=True
-                if event.key==pygame.K_RIGHT:
-                    first_shape.x+=1
-                    if not utils.check_borders(grid, first_shape):
-                        first_shape.x -=1
-                if event.key==pygame.K_LEFT:
-                    first_shape.x -=1
-                    if not utils.check_borders(grid, first_shape):
-                        first_shape.x +=1
-                if event.key==pygame.K_UP:
-                    rotation +=1
-                    if rotation>len(first_shape.shape)-1:
-                        rotation =0
-                    first_shape.rotation=rotation
-        position=utils.get_position(first_shape)
-        for pos in position:
-            (x,y)=pos
-            grid[y][x]=first_shape.color
-        utils.put_shapes(surface,grid,first_shape)
-        if onThe_Ground:
-            for pos in position:
-                loc_p=(pos[0], pos[1])
-                loc[loc_p]=first_shape.color
-            first_shape=second_shape
-            second_shape=utils.create_shape()
-            onThe_Ground=False
-            score +=utils.clear_rows(grid, loc)*10
-        if utils.check_end(loc):
-            run=False
-    pygame.display.quit()
-
-
-def ai_tetris(rotation, x, shape, maxY, shape_X, shape_y):
+def ai_tetris(rotation, x, shape, maxY, shape_X, shape_y,number):
     pygame.font.init()
-    score=0
     surface = pygame.display.set_mode((constants.S_WIDTH, constants.S_HEIGHT))
     run = True
     second_shape=utils.create_shape()
-    loc = {}
+    global loc
     surface.fill((0, 0, 0))
     grid = utils.show_grid(loc)
     onThe_Ground = False
@@ -182,51 +110,54 @@ def ai_tetris(rotation, x, shape, maxY, shape_X, shape_y):
             if event.type == pygame.QUIT:
                 run = False
 
-        shape.x=x
-        shape.rotation=rotation%(len(shape.shape))
+        shape.x = x
+        shape.rotation = rotation % (len(shape.shape))
+        move_to_ground=check_ground(shape)
+        move=0
+        while move<=move_to_ground-1:
+            move +=1
+            grid = utils.show_grid(loc)
+
+            utils.show_score(surface, score)
+            time += clock.get_rawtime()
+            clock.tick()
+            # show_shape(surface,first_shape,grid)
+            utils.show_lines(grid, surface)
+            utils.show_next_shape(surface, second_shape)
+            pygame.time.wait(5)
+            if not utils.check_borders(grid,shape):
+                break
+            #shape.y += 1
+            position = utils.get_position(shape)
+            for pos in position:
+                (x, y) = pos
+                if y > -1:
+                    grid[y][x] = shape.color
+            shape.y += 1
+            utils.put_shapes(surface, grid, shape)
+            pygame.display.update()
+
+        onThe_Ground = True
+        shape.y -= 1
+
 
         position = utils.get_position(shape)
-        for pos in position:
-            (x, y) = pos
-            grid[y][x] = shape.color
-        utils.put_shapes(surface, grid, shape)
-
         if onThe_Ground:
             for pos in position:
                 loc_p = (pos[0], pos[1])
                 loc[loc_p] = shape.color
             shape = second_shape
-            second_shape = utils.create_shape()
+            second_shape=utils.create_shape()
             onThe_Ground = False
             score += utils.clear_rows(grid, loc) * 10
 
         if utils.check_end(loc):
-            score -=150
+            #score -=50
+            score +=(number)*5
             run = False
 
-        score -=maxY*5
+        #score -=maxY*5
 
-        pygame.display.update()
+        #pygame.display.update()
 
         return score,grid,shape, run
-
-
-def run_game(window, popsize, movenumber, weights):
-    run=True
-
-    while run:
-        window.fill((0,0,0))
-        utils.starting_window(window,'please press a button')
-        for event in pygame.event.get():
-            if event.type==pygame.QUIT:
-                run=False
-            if event.type==pygame.KEYDOWN:
-                ai_play(window, popsize, movenumber, weights)
-        pygame.display.update()
-    pygame.display.quit()
-
-def main_func(popsize, movenumber, weights):
-    pygame.font.init()
-
-    window=pygame.display.set_mode((constants.S_WIDTH, constants.S_HEIGHT))
-    run_game(window, popsize, movenumber, weights)

@@ -105,7 +105,8 @@ def show_shape(surface, shape, grid):
     for i in range(len(grid)):
         for j in range(len(grid[0])):
             pygame.draw.rect(surface, grid[i][j],
-                             (cons.top_left_x + j * cons.block_size, cons.top_left_y + i * cons.block_size, cons.block_size, cons.block_size), 0)
+                             (cons.top_left_x + j* cons.block_size, cons.top_left_y + i * cons.block_size, cons.block_size, cons.block_size), 0)
+    pygame.draw.rect(surface, (255, 0, 0), (cons.top_left_x, cons.top_left_y, cons.play_width, cons.play_height), 5)
 
 
 def show_next_shape(surface, shape):
@@ -116,16 +117,16 @@ def show_next_shape(surface, shape):
     '''
     text = write_text('comicsant', 30, cons.WHITE, 'Next Shape')
 
-    text_posx = (cons.top_left_x + cons.block_size * 10 + 20)
+    text_posx = (cons.top_left_x + cons.block_size * 10 + 50+20)
     text_posy = (cons.play_height) // 3
 
     surface.blit(text, (text_posx, text_posy))
 
     shape_pos = get_position(shape)
 
-    for pos in shape_pos:
+    for i,pos in enumerate(shape_pos):
         (x, y) = pos
-        (shape_win_posx, shape_win_posy) = (x * cons.block_size + text_posx - 150, y * cons.block_size + text_posy + 60)
+        (shape_win_posx, shape_win_posy) = (x * cons.block_size + text_posx-100 , y * cons.block_size + text_posy + 152)
         pygame.draw.rect(surface, shape.color, (shape_win_posx, shape_win_posy, cons.block_size, cons.block_size), 0)
 
     pygame.display.update()
@@ -219,6 +220,10 @@ def get_position(shape):
         for j, column in enumerate(row):
             if column == '0':
                 pos.append((shape.x + j, shape.y + i))
+
+
+    for i, poss in enumerate(pos):
+        pos[i] = (poss[0] - 2, poss[1] - 4)
 
 
     return pos
