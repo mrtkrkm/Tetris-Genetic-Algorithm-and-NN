@@ -24,7 +24,7 @@ The architecture of NN is:
 	-Hidden2 Layer
 -Output1 Layer     -Output2Layer
  
-In order to play yourself make following changes in the `run.py` 
+In order to play Tetris by yourself make following changes in the `run.py` 
 
 ```
 #gameMain.main_func()
