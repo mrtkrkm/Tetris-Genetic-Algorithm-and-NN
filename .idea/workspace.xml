@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ae1db6a8-e3cf-419d-bac4-e1f1bf5c75b6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GeneticAlgorithm/Steps.py" beforeDir="false" afterPath="$PROJECT_DIR$/GeneticAlgorithm/Steps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NeuralNetwork/FeedForward.py" beforeDir="false" afterPath="$PROJECT_DIR$/NeuralNetwork/FeedForward.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tetris/AI_tetris.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tetris/AI_tetris.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
-    </list>
+    <list default="true" id="ae1db6a8-e3cf-419d-bac4-e1f1bf5c75b6" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
