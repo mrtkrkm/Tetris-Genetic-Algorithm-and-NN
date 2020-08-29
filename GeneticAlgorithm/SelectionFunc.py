@@ -1,6 +1,6 @@
 import numpy as np
 
-class CrossOvers(object):
+class Selections(object):
     def __init__(self, type):
         self.ctype=type
 

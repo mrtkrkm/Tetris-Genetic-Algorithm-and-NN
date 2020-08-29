@@ -3,9 +3,9 @@ This is a Tetris AI Implemantation by using Genetic Algorithm and Neural Network
 For genetic algorithm the following methods selected
 
  `Selection`
-1. Best `number_of_parents` selected based on their fitness result
+1. Best `number_of_parents` chromosomes selected based on their fitness result
 2. Best `number_of_parents` chromosomes selected for next generation. AKA `elitist selection`
-3. In order to chose 2 parents `Roulette Wheel Selection` used on Best chromosomes
+3. In order to chose 2 parents, `Roulette Wheel Selection` used on Best chromosomes
 
 `Cross-Over`
 - One point Crossover method was used.
@@ -24,7 +24,7 @@ The architecture of NN is:
 	-Hidden2 Layer
 -Output1 Layer     -Output2Layer
  
-In order to play Tetris by yourself make following changes in the `run.py` 
+In order to play Tetris by yourself, make following changes in the `run.py` 
 
 ```
 #gameMain.main_func()
