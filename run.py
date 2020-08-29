@@ -1,10 +1,10 @@
 from Tetris import main as gameMain
 from Tetris import AI_tetris as aiplay
-from GA.Steps import GeneticAlgorithm
+from GeneticAlgorithm.Steps import GeneticAlgorithm
 import numpy as np
-from NN.FeedForward import NN
-from GA.CrossoverTypes import CrossOverTypes as ctypes
-from GA.SelectionTypes import SelectionTypes as stypes
+from NeuralNetwork.FeedForward import NN
+from GeneticAlgorithm.CrossoverTypes import CrossOverTypes as ctypes
+from GeneticAlgorithm.SelectionTypes import SelectionTypes as stypes
 
 if __name__ == "__main__":
 

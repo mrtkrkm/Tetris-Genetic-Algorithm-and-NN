@@ -1,4 +1,4 @@
-from GA.CrossoverTypes import CrossOverTypes as ctypes
+from GeneticAlgorithm.CrossoverTypes import CrossOverTypes as ctypes
 import numpy as np
 
 def select_best_chromosomes(scores, number_parents, population):

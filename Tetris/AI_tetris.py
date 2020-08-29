@@ -1,4 +1,4 @@
-import GA.Steps as genetic
+import GeneticAlgorithm.Steps as genetic
 import pygame
 import random
 import Tetris.Utils as utils

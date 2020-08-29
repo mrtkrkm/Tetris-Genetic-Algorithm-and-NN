@@ -1,8 +1,8 @@
 import numpy as np
 import Tetris.AI_tetris as aiPlay
-from GA.CrossoverTypes import CrossOverTypes as ctypes
-import GA.CrossOverFunc as cfunc
-import GA.Utils as gutils
+from GeneticAlgorithm.CrossoverTypes import CrossOverTypes as ctypes
+import GeneticAlgorithm.CrossOverFunc as cfunc
+import GeneticAlgorithm.Utils as gutils
 
 
 class GeneticAlgorithm(object):
